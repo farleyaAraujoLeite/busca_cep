@@ -3,7 +3,7 @@ import json
 import PySimpleGUI as sg
 
 layout = [
-    [sg.Text('Digite o cep:'), sg.InputText(key='input_cep')],
+    [sg.Text('Digite o cep:'), sg.InputText(key='input_cep', size=(20, 1))],
     [sg.Button('Buscar')],
 ]
 
