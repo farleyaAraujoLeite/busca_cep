@@ -1,6 +1,7 @@
 import requests
 import json
 import PySimpleGUI as sg
+import pandas as pd
 
 layout = [
     [sg.Text('Digite o cep:'), sg.InputText(key='input_cep', size=(20, 1))],
@@ -24,6 +25,9 @@ lista = {
 
 }
 
-sg.Popup('Resultado:', lista)
+obj = pd.json_normalize(lista)
+pd.DataFrame(obj)
+
+sg.Popup(obj)
 
 window.close()
