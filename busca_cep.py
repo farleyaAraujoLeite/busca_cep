@@ -16,7 +16,7 @@ cep_number = values['input_cep']
 api_cep_url = requests.get(f'https://viacep.com.br/ws/{cep_number}/json/')
 adress = json.loads(api_cep_url.text)
 lista = {
-    "Endereço": [
+    "Endereço: ": [
         adress['logradouro'],
         adress['bairro'],
         adress['localidade'],
@@ -26,8 +26,10 @@ lista = {
 }
 
 obj = pd.json_normalize(lista)
-pd.DataFrame(obj)
+simpleString = sg.convert_args_to_single_string(obj)
+pd.DataFrame(simpleString)
 
-sg.Popup(obj)
+sg.popup(simpleString)
+print(simpleString)
 
 window.close()
